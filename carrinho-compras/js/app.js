@@ -6,6 +6,17 @@ function adicionar() {
     let nomeProduto = produto.split('-')[0];
     let valorUnitario = produto.split('$')[1];
     let quantidade = document.getElementById("quantidade").value;
+
+    if (!produto || produto.trim() === "") {
+        alert("Selecione um produto válido.");
+        return;
+    }
+
+    if (isNaN(quantidade) || quantidade <= 0) {
+        alert("Insira uma quantidade válida.");
+        return;
+    }
+
     let valorTotalProduto = quantidade * valorUnitario;
     let listaProdutos = document.getElementById('lista-produtos');
     listaProdutos.innerHTML = listaProdutos.innerHTML + `<section class="carrinho__produtos__produto">
